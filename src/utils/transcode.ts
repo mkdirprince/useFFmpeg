@@ -21,63 +21,63 @@ import { formatFileSize } from "./formatFileSize";
  */
 
 export const transcode = async (
-  ffmpeg: FFmpeg | null,
-  file: File,
-  outputFileFullName: string,
-  cmdOptions?: string[]
+	ffmpeg: FFmpeg | null,
+	file: File,
+	outputFileFullName: string,
+	cmdOptions?: string[],
 ): Promise<{ url: string; fileSize: string }> => {
-  const inputFileFullName = file.name;
+	const inputFileFullName = file.name;
 
-  if (!ffmpeg) {
-    return errorHandler(
-      new Error("FFmpeg not loaded"),
-      "Error converting file"
-    );
-  }
+	if (!ffmpeg) {
+		return errorHandler(
+			new Error("FFmpeg not loaded"),
+			"Error converting file",
+		);
+	}
 
-  try {
-    // Write the file to FFmpeg's virtual file system
-    await ffmpeg.writeFile(inputFileFullName, await fetchFile(file));
+	try {
+		// Write the file to FFmpeg's virtual file system
+		await ffmpeg.writeFile(inputFileFullName, await fetchFile(file));
 
-    const { mimeType } = extractMimeType(outputFileFullName);
+		const { mimeType } = extractMimeType(outputFileFullName);
 
-    // Ensure cmdOptions is an array or defaults to empty array
-    const safeCmdOptions = Array.isArray(cmdOptions) ? cmdOptions : [];
+		// Ensure cmdOptions is an array or defaults to empty array
+		const safeCmdOptions = Array.isArray(cmdOptions) ? cmdOptions : [];
 
-    // FFmpeg command setup
-    const ffmpegCmd = [
-      "-i",
-      inputFileFullName,
-      outputFileFullName,
-      ...safeCmdOptions,
-    ];
+		// FFmpeg command setup
+		const ffmpegCmd = [
+			"-i",
+			inputFileFullName,
+			outputFileFullName,
+			...safeCmdOptions,
+		];
 
-    // Execute FFmpeg command
-    await ffmpeg.exec(ffmpegCmd);
+		// Execute FFmpeg command
+		await ffmpeg.exec(ffmpegCmd);
 
-    // Read the output file
-    const data = await ffmpeg.readFile(outputFileFullName);
+		// Read the output file
+		const data = await ffmpeg.readFile(outputFileFullName);
 
-    // Create a Blob from the data and generate a URL
-    const blob = new Blob([data], { type: mimeType });
+		// Create a Blob from the data and generate a URL
+		const blob = new Blob([data], { type: mimeType });
 
-    // blobsize
-    const size = blob.size;
+		// blobsize
+		const size = blob.size;
 
-    //convert blob size to human-readable form
-    const humanReadableSize = formatFileSize(size);
+		//convert blob size to human-readable form
+		const humanReadableSize = formatFileSize(size);
 
-    // creates a URL to reference the blob
-    const url = URL.createObjectURL(blob);
+		// creates a URL to reference the blob
+		const url = URL.createObjectURL(blob);
 
-    // Clean FFmpeg virtual file system by deleting temporary files
-    await Promise.all([
-      ffmpeg.deleteFile(inputFileFullName),
-      ffmpeg.deleteFile(outputFileFullName),
-    ]);
+		// Clean FFmpeg virtual file system by deleting temporary files
+		await Promise.all([
+			ffmpeg.deleteFile(inputFileFullName),
+			ffmpeg.deleteFile(outputFileFullName),
+		]);
 
-    return { url, fileSize: humanReadableSize };
-  } catch (error) {
-    return errorHandler(error, "Error converting file");
-  }
+		return { url, fileSize: humanReadableSize };
+	} catch (error) {
+		return errorHandler(error, "Error converting file");
+	}
 };
