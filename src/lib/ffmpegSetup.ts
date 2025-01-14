@@ -1,6 +1,5 @@
 import { FFmpeg } from "@ffmpeg/ffmpeg";
 import { toBlobURL } from "@ffmpeg/util";
-import { errorHandler } from "../utils/errorHandler";
 
 /**
  * Loads the FFmpeg library with optional multi-threading support.
@@ -48,9 +47,7 @@ export const load = async (
       await ffmpeg.load(singleThred);
     }
   } catch (error) {
-    Promise.reject(
-      new Error(`Error loading FFmpeg core and WASM files from ${baseUrl}`)
-    );
+    throw new Error(`Error loading FFmpeg core and WASM files from ${baseUrl}`);
   }
 
   return ffmpeg;
