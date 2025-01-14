@@ -1,6 +1,6 @@
 {
   "name": "use-ffmpeg",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "A React hook for browser-based media processing using FFmpeg WASM - handles video and other file formats conversion with ease",
   "main": "./build/index.js",
   "types": "./build/index.d.js",
@@ -12,7 +12,9 @@
     "test": "glob 'src/tests/unit/**/*.test.ts' -c 'tsx --test'",
     "test:vitest": "vitest --watch=false src/tests/integration/useFFmpeg.test.ts",
     "prepare": "husky",
-    "doc": "typedoc build/**/*.js -d docs/"
+    "doc": "typedoc build/**/*.js -d docs/",
+    "release": "standard-version --no-verify",
+    "postrelease": "git push --follow-tags && npm publish"
   },
   "keywords": [
     "ffmpeg",
@@ -30,6 +32,8 @@
   "license": "MIT",
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.1.0",
     "@types/node": "^22.10.6",
@@ -38,6 +42,8 @@
     "husky": "^9.1.7",
     "jsdoc": "^4.0.4",
     "jsdom": "^26.0.0",
+    "standard-version": "^9.5.0",
+    "ts-node": "^10.9.2",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3",
     "vitest": "^2.1.8"
