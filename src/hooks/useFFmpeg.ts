@@ -39,6 +39,7 @@ export const useFFmpeg = (): UseFFmpeg => {
 			SetLoaded(true);
 		} catch (error) {
 			errorHandler(error, "Error loading FFmpeg");
+			SetLoaded(false);
 		}
 	}, []);
 
