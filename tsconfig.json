@@ -1,0 +1,16 @@
+{
+	"compilerOptions": {
+		"target": "ES6",
+		"outDir": "./build/",
+		"module": "commonjs",
+		"strict": true,
+		"declaration": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
+		"esModuleInterop": true,
+		"typeRoots": ["./src/types", "./node_modules/@types"]
+	},
+	"files": ["./src/index.ts"]
+}
