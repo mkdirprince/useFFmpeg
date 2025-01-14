@@ -23,32 +23,32 @@ import { toBlobURL } from "@ffmpeg/util";
  */
 
 export const load = async (
-  baseUrl: string = "https://unpkg.com/@ffmpeg/core@0.12.10/dist/esm",
-  mt: boolean = false
+	baseUrl = "https://unpkg.com/@ffmpeg/core@0.12.10/dist/esm",
+	mt = false,
 ): Promise<FFmpeg> => {
-  // inittialize a new ffmpeg instance
-  const ffmpeg = new FFmpeg();
+	// inittialize a new ffmpeg instance
+	const ffmpeg = new FFmpeg();
 
-  const singleThred = {
-    coreURL: await toBlobURL(`${baseUrl}/ffmpeg-core.js`, "text/javascript"),
-    wasmURL: await toBlobURL(`${baseUrl}/ffmpeg-core.wasm`, "application/wasm"),
-  };
+	const singleThred = {
+		coreURL: await toBlobURL(`${baseUrl}/ffmpeg-core.js`, "text/javascript"),
+		wasmURL: await toBlobURL(`${baseUrl}/ffmpeg-core.wasm`, "application/wasm"),
+	};
 
-  try {
-    if (mt) {
-      await ffmpeg.load({
-        ...singleThred,
-        workerURL: await toBlobURL(
-          `${baseUrl}/ffmpeg-core.worker.js`,
-          "text/javascript"
-        ),
-      });
-    } else {
-      await ffmpeg.load(singleThred);
-    }
-  } catch (error) {
-    throw new Error(`Error loading FFmpeg core and WASM files from ${baseUrl}`);
-  }
+	try {
+		if (mt) {
+			await ffmpeg.load({
+				...singleThred,
+				workerURL: await toBlobURL(
+					`${baseUrl}/ffmpeg-core.worker.js`,
+					"text/javascript",
+				),
+			});
+		} else {
+			await ffmpeg.load(singleThred);
+		}
+	} catch (error) {
+		throw new Error(`Error loading FFmpeg core and WASM files from ${baseUrl}`);
+	}
 
-  return ffmpeg;
+	return ffmpeg;
 };
