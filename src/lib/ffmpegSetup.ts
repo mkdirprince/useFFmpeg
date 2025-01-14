@@ -30,15 +30,6 @@ export const load = async (
   // inittialize a new ffmpeg instance
   const ffmpeg = new FFmpeg();
 
-  // listen to log and print it in the console
-  ffmpeg.on("log", ({ message, type }) => {
-    console.log(message);
-
-    if (type === "error" || message.toLowerCase().includes("error")) {
-      errorHandler(new Error(message), "Error while transcoding file");
-    }
-  });
-
   const singleThred = {
     coreURL: await toBlobURL(`${baseUrl}/ffmpeg-core.js`, "text/javascript"),
     wasmURL: await toBlobURL(`${baseUrl}/ffmpeg-core.wasm`, "application/wasm"),
@@ -57,7 +48,9 @@ export const load = async (
       await ffmpeg.load(singleThred);
     }
   } catch (error) {
-    errorHandler(error, `Error loading FFmpeg core and WASM files, ${baseUrl}`);
+    Promise.reject(
+      new Error(`Error loading FFmpeg core and WASM files from ${baseUrl}`)
+    );
   }
 
   return ffmpeg;
