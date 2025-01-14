@@ -1,6 +1,6 @@
 {
   "name": "use-ffmpeg",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A React hook for browser-based media processing using FFmpeg WASM - handles video and other file formats conversion with ease",
   "main": "./build/index.js",
   "types": "./build/index.d.js",
@@ -13,7 +13,7 @@
     "test:vitest": "vitest --watch=false src/tests/integration/useFFmpeg.test.ts",
     "prepare": "husky",
     "doc": "typedoc build/**/*.js -d docs/",
-    "release": "standard-version --no-verify",
+    "release": "standard-version",
     "postrelease": "git push --follow-tags && npm publish"
   },
   "keywords": [
