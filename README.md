@@ -7,6 +7,7 @@
 - **Load FFmpeg**: Load the FFmpeg library and prepare it for file transcoding.
 - **Transcode Files**: Convert media files from one format to another using FFmpeg.
 - **File Format Support**: Transcode a variety of video, audio, image, text, and document formats.
+- **MIME Types Object**: Access the supported MIME types for file formats, making it easy to check which types are accepted for transcoding.
 
 ## Supported MIME Types
 
@@ -91,6 +92,22 @@ npm install @ffmpeg/ffmpeg
 ```
 
 ## Usage
+
+## Access to MIME Types
+
+In addition to the core functionality, users also have access to a predefined object containing supported MIME types, which can be used directly in the application. This object allows easy reference to MIME types for transcoding operations.
+
+You can access the object like this:
+
+```tsx
+import { mimeTypes } from "use-ffmpeg";
+
+// Example usage:
+console.log(mimeTypes.video.mp4); // Output: 'video/mp4'
+console.log(mimeTypes.audio.mp3); // Output: 'audio/mpeg'
+```
+
+This object contains the MIME types categorized for video, audio, image, text, and document formats. It helps simplify the process of referencing MIME types, especially when dealing with transcoding options.
 
 ### Basic Usage (No Custom URL)
 
