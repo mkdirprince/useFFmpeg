@@ -1,52 +1,55 @@
 {
-	"name": "use-ffmpeg",
-	"version": "1.0.0",
-	"description": "A React hook for browser-based media processing using FFmpeg WASM - handles video and other file formats conversion with ease",
-	"main": "./build/index.js",
-	"types": "./build/index.d.js",
-	"scripts": {
-		"tsc": "tsc",
-		"clean": "rm -rf build",
-		"prepack": "npm run clean && tsc",
-		"format": "npx @biomejs/biome check --write .",
-		"test": "glob 'src/tests/unit/**/*.test.ts' -c 'tsx --test'",
-		"test:vitest": "vitest --watch=false src/tests/integration/useFFmpeg.test.ts",
-		"prepare": "husky",
-		"doc": "npx typedoc src/index.ts"
-	},
-	"keywords": [
-		"ffmpeg",
-		"wasm",
-		"react-hook",
-		"react",
-		"media-processing",
-		"conversion",
-		"transcoding",
-		"browser",
-		"multimedia",
-		"media-converter"
-	],
-	"author": "Prince Wilson",
-	"license": "MIT",
-	"devDependencies": {
-		"@biomejs/biome": "1.9.4",
-		"@testing-library/jest-dom": "^6.6.3",
-		"@testing-library/react": "^16.1.0",
-		"@types/node": "^22.10.6",
-		"@types/react": "^19.0.7",
-		"glob": "^11.0.1",
-		"husky": "^9.1.7",
-		"jsdom": "^26.0.0",
-		"tsx": "^4.19.2",
-		"typedoc": "^0.27.6",
-		"typescript": "^5.7.3",
-		"vitest": "^2.1.8"
-	},
-	"files": ["build/", "types"],
-	"peerDependencies": {
-		"@ffmpeg/ffmpeg": "^0.12.15",
-		"@ffmpeg/util": "^0.12.2",
-		"react": "^18.0.0 || ^19.0.0",
-		"react-dom": "^18.0.0 || ^19.0.0"
-	}
+  "name": "use-ffmpeg",
+  "version": "1.0.0",
+  "description": "A React hook for browser-based media processing using FFmpeg WASM - handles video and other file formats conversion with ease",
+  "main": "./build/index.js",
+  "types": "./build/index.d.js",
+  "scripts": {
+    "tsc": "tsc",
+    "clean": "rm -rf build",
+    "prepack": "npm run clean && tsc",
+    "format": "npx @biomejs/biome check --write .",
+    "test": "glob 'src/tests/unit/**/*.test.ts' -c 'tsx --test'",
+    "test:vitest": "vitest --watch=false src/tests/integration/useFFmpeg.test.ts",
+    "prepare": "husky",
+    "doc": "typedoc build/**/*.js -d docs/"
+  },
+  "keywords": [
+    "ffmpeg",
+    "wasm",
+    "react-hook",
+    "react",
+    "media-processing",
+    "conversion",
+    "transcoding",
+    "browser",
+    "multimedia",
+    "media-converter"
+  ],
+  "author": "Prince Wilson",
+  "license": "MIT",
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@types/node": "^22.10.6",
+    "@types/react": "^19.0.7",
+    "glob": "^11.0.1",
+    "husky": "^9.1.7",
+    "jsdoc": "^4.0.4",
+    "jsdom": "^26.0.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.8"
+  },
+  "files": [
+    "build/",
+    "types"
+  ],
+  "peerDependencies": {
+    "@ffmpeg/ffmpeg": "^0.12.15",
+    "@ffmpeg/util": "^0.12.2",
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  }
 }

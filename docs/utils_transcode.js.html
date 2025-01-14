@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: utils/transcode.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: utils/transcode.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>"use strict";
+var __awaiter = (this &amp;&amp; this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.transcode = void 0;
+const util_1 = require("@ffmpeg/util");
+const errorHandler_1 = require("./errorHandler");
+const extractMimeType_1 = require("./extractMimeType");
+const formatFileSize_1 = require("./formatFileSize");
+/**
+ * Transcodes a file using FFmpeg and returns the output as a downloadable URL and its human-readable size.
+ *
+ * This function handles the file conversion process using FFmpeg, including writing the file to FFmpeg's virtual file system,
+ * executing the FFmpeg command, and cleaning up temporary files after the conversion.
+ *
+ * @param {FFmpeg | null} ffmpeg - The initialized FFmpeg instance.
+ * @param {File} file - The input file to be transcoded.
+ * @param {string} outputFileFullName - The name of the output file, including its extension.
+ * @param {string[]} [cmdOptions] - Optional array of additional FFmpeg command-line options.
+ * @returns {Promise&lt;{ url: string; fileSize: string }>} A promise resolving to an object containing:
+ *   - `url` (string): A downloadable URL for the transcoded file.
+ *   - `fileSize` (string): The size of the transcoded file in a human-readable format.
+ * @throws {Error} If FFmpeg is not loaded, or if any error occurs during the transcoding process.
+ */
+const transcode = (ffmpeg, file, outputFileFullName, cmdOptions) => __awaiter(void 0, void 0, void 0, function* () {
+    const inputFileFullName = file.name;
+    if (!ffmpeg) {
+        return (0, errorHandler_1.errorHandler)(new Error("FFmpeg not loaded"), "Error converting file");
+    }
+    try {
+        // Write the file to FFmpeg's virtual file system
+        yield ffmpeg.writeFile(inputFileFullName, yield (0, util_1.fetchFile)(file));
+        const { mimeType } = (0, extractMimeType_1.extractMimeType)(outputFileFullName);
+        // Ensure cmdOptions is an array or defaults to empty array
+        const safeCmdOptions = Array.isArray(cmdOptions) ? cmdOptions : [];
+        // FFmpeg command setup
+        const ffmpegCmd = [
+            "-i",
+            inputFileFullName,
+            outputFileFullName,
+            ...safeCmdOptions,
+        ];
+        // Execute FFmpeg command
+        yield ffmpeg.exec(ffmpegCmd);
+        // Read the output file
+        const data = yield ffmpeg.readFile(outputFileFullName);
+        // Create a Blob from the data and generate a URL
+        const blob = new Blob([data], { type: mimeType });
+        // blobsize
+        const size = blob.size;
+        //convert blob size to human-readable form
+        const humanReadableSize = (0, formatFileSize_1.formatFileSize)(size);
+        // creates a URL to reference the blob
+        const url = URL.createObjectURL(blob);
+        // Clean FFmpeg virtual file system by deleting temporary files
+        yield Promise.all([
+            ffmpeg.deleteFile(inputFileFullName),
+            ffmpeg.deleteFile(outputFileFullName),
+        ]);
+        return { url, fileSize: humanReadableSize };
+    }
+    catch (error) {
+        return (0, errorHandler_1.errorHandler)(error, "Error converting file");
+    }
+});
+exports.transcode = transcode;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#extractMimeType">extractMimeType</a></li><li><a href="global.html#load">load</a></li><li><a href="global.html#transcode">transcode</a></li><li><a href="global.html#useFFmpeg">useFFmpeg</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Tue Jan 14 2025 15:58:28 GMT+0000 (Greenwich Mean Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
