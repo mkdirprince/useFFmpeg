@@ -2,12 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [1.1.0](https://github.com/mkdirprince/useFFmpeg/compare/v1.0.7...v1.1.0) (2025-01-14)
+## [1.1.1] - 2025-01-14
 
+### Changed
+
+- Updates to documentation.
+
+## [1.1.0](https://github.com/mkdirprince/useFFmpeg/compare/v1.0.7...v1.1.0) (2025-01-14)
 
 ### Features
 
-* add support for MIME types and extensions in useHook ([ad73ce1](https://github.com/mkdirprince/useFFmpeg/commit/ad73ce107a8d4b168769976402337c2fbebec125))
+- add support for MIME types and extensions in useHook ([ad73ce1](https://github.com/mkdirprince/useFFmpeg/commit/ad73ce107a8d4b168769976402337c2fbebec125))
 
 ### 1.0.7 (2025-01-14)
 
