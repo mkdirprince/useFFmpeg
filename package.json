@@ -6,6 +6,8 @@
 	"types": "./build/index.d.js",
 	"scripts": {
 		"tsc": "tsc",
+		"clean": "rm -rf build",
+		"prepack": "npm run clean && tsc",
 		"format": "npx @biomejs/biome check --write .",
 		"test": "\"glob 'src/**/*.test.ts' -c 'tsx --test'\"",
 		"prepare": "husky",
