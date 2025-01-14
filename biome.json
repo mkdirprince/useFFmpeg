@@ -7,7 +7,7 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": ["build", "tests/**/*", "**/*.test.js", "package*", "biome.json"]
+    "ignore": ["build", "tests/**/*", "**/*.test.js", "package*", "biome*"]
   },
   "formatter": {
     "enabled": true,
