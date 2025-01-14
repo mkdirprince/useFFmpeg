@@ -1,47 +1,44 @@
 {
-  "name": "use-ffmpeg",
-  "version": "1.0.0",
-  "description": "A React hook for browser-based media processing using FFmpeg WASM - handles video and other file formats conversion with ease",
-  "main": "./build/index.js",
-  "types": "./build/index.d.js",
-  "scripts": {
-    "tsc": "tsc",
-    "format": "npx @biomejs/biome check --write .",
-    "test": "\"glob 'src/**/*.test.ts' -c 'tsx --test'\"",
-    "prepare": "husky",
-    "doc": "npx typedoc src/index.ts"
-  },
-  "keywords": [
-    "ffmpeg",
-    "wasm",
-    "react-hook",
-    "react",
-    "media-processing",
-    "conversion",
-    "transcoding",
-    "browser",
-    "multimedia",
-    "media-converter"
-  ],
-  "author": "Prince Wilson",
-  "license": "MIT",
-  "devDependencies": {
-    "@biomejs/biome": "1.9.4",
-    "@types/react": "^19.0.7",
-    "glob": "^11.0.1",
-    "husky": "^9.1.7",
-    "tsx": "^4.19.2",
-    "typedoc": "^0.27.6",
-    "typescript": "^5.7.3"
-  },
-  "files": [
-    "build/",
-    "types"
-  ],
-  "peerDependencies": {
-    "@ffmpeg/ffmpeg": "^0.12.15",
-    "@ffmpeg/util": "^0.12.2",
-    "react": "^18.0.0 || ^19.0.0",
-    "react-dom": "^18.0.0 || ^19.0.0"
-  }
+	"name": "use-ffmpeg",
+	"version": "1.0.0",
+	"description": "A React hook for browser-based media processing using FFmpeg WASM - handles video and other file formats conversion with ease",
+	"main": "./build/index.js",
+	"types": "./build/index.d.js",
+	"scripts": {
+		"tsc": "tsc",
+		"format": "npx @biomejs/biome check --write .",
+		"test": "\"glob 'src/**/*.test.ts' -c 'tsx --test'\"",
+		"prepare": "husky",
+		"doc": "npx typedoc src/index.ts"
+	},
+	"keywords": [
+		"ffmpeg",
+		"wasm",
+		"react-hook",
+		"react",
+		"media-processing",
+		"conversion",
+		"transcoding",
+		"browser",
+		"multimedia",
+		"media-converter"
+	],
+	"author": "Prince Wilson",
+	"license": "MIT",
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"@types/react": "^19.0.7",
+		"glob": "^11.0.1",
+		"husky": "^9.1.7",
+		"tsx": "^4.19.2",
+		"typedoc": "^0.27.6",
+		"typescript": "^5.7.3"
+	},
+	"files": ["build/", "types"],
+	"peerDependencies": {
+		"@ffmpeg/ffmpeg": "^0.12.15",
+		"@ffmpeg/util": "^0.12.2",
+		"react": "^18.0.0 || ^19.0.0",
+		"react-dom": "^18.0.0 || ^19.0.0"
+	}
 }
