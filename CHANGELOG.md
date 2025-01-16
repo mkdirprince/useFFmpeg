@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.2](https://github.com/mkdirprince/useFFmpeg/compare/v1.1.1...v1.1.2) (2025-01-16)
+
+
+### Bug Fixes
+
+* add parenthesis to semvr 1.1.1 of changelog ([589e1ce](https://github.com/mkdirprince/useFFmpeg/commit/589e1cea5d56a8f3cd58e0f471fa8a835dce0d51))
+* **core:** drop support for non-media files (BREAKING CHANGE) ([d11b46a](https://github.com/mkdirprince/useFFmpeg/commit/d11b46a060c9222b160aff016205caba9f8491ad))
+
 ## [1.1.1] - (2025-01-14)
 
 ### Changed
