@@ -4,8 +4,8 @@ import { extractMimeType } from "../../utils/extractMimeType";
 
 describe("extractMimeType", () => {
   test("with correct MIME type for supported file", () => {
-    const result = extractMimeType("example.pdf");
-    assert.deepStrictEqual(result, { mimeType: "application/pdf" });
+    const result = extractMimeType("example.gif");
+    assert.deepStrictEqual(result, { mimeType: "image/gif" });
   });
 
   test("with unsupported file extension", () => {
@@ -21,9 +21,9 @@ describe("extractMimeType", () => {
   });
 
   test("with file with multiple periods", () => {
-    const result = extractMimeType("example.file.name.pdf");
+    const result = extractMimeType("example.file.name.gif");
 
-    assert.deepStrictEqual(result, { mimeType: "application/pdf" });
+    assert.deepStrictEqual(result, { mimeType: "image/gif" });
   });
 
   test("with case-insensitive extension", () => {

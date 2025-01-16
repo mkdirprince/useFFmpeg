@@ -1,6 +1,6 @@
 # useFFmpeg - React Hook for File Transcoding with FFmpeg
 
-`useFFmpeg` is a custom React hook designed to facilitate loading and transcoding media files using FFmpeg. This hook provides an easy way to load the FFmpeg library, manage the loading state, and transcode files into different formats, all from within a React application.
+`useFFmpeg` is a custom React hook designed to facilitate loading and transcoding media files using [ffmpeg.wasm](https://ffmpegwasm.netlify.app). This hook provides an easy way to load the ffmpeg library, manage the loading state, and transcode media files into different formats, all from within a React application.
 
 ## Features
 
@@ -11,7 +11,7 @@
 
 ## Supported MIME Types
 
-The `useFFmpeg` hook supports a broad range of MIME types, allowing transcoding of video, audio, text, images, and documents. Below are the supported formats:
+The `useFFmpeg` hook supports a broad range of MIME types, focusing exclusively on media files for transcoding. Below are the supported formats:
 
 ### Video Formats
 
@@ -39,20 +39,6 @@ The `useFFmpeg` hook supports a broad range of MIME types, allowing transcoding 
 - `amr`: `audio/amr`
 - `opus`: `audio/opus`
 
-### Text Formats
-
-- `plain`: `text/plain`
-- `html`: `text/html`
-- `css`: `text/css`
-- `javascript`: `application/javascript`
-- `json`: `application/json`
-- `xml`: `application/xml`
-- `csv`: `text/csv`
-- `markdown`: `text/markdown`
-- `yaml`: `application/x-yaml`
-- `pdf`: `application/pdf`
-- `rtf`: `application/rtf`
-
 ### Image Formats
 
 - `png`: `image/png`
@@ -63,16 +49,6 @@ The `useFFmpeg` hook supports a broad range of MIME types, allowing transcoding 
 - `bmp`: `image/bmp`
 - `tiff`: `image/tiff`
 - `ico`: `image/x-icon`
-
-### Document Formats
-
-- `pdf`: `application/pdf`
-- `doc`: `application/msword`
-- `docx`: `application/vnd.openxmlformats-officedocument.wordprocessingml.document`
-- `xls`: `application/vnd.ms-excel`
-- `xlsx`: `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`
-- `ppt`: `application/vnd.ms-powerpoint`
-- `pptx`: `application/vnd.openxmlformats-officedocument.presentationml.presentation`
 
 ## Installation
 

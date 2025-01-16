@@ -23,19 +23,6 @@ export const mimeTypes = {
 		amr: "audio/amr",
 		opus: "audio/opus",
 	},
-	text: {
-		plain: "text/plain",
-		html: "text/html",
-		css: "text/css",
-		javascript: "application/javascript",
-		json: "application/json",
-		xml: "application/xml",
-		csv: "text/csv",
-		markdown: "text/markdown",
-		yaml: "application/x-yaml",
-		pdf: "application/pdf",
-		rtf: "application/rtf",
-	},
 	image: {
 		png: "image/png",
 		jpeg: "image/jpeg",
@@ -47,21 +34,10 @@ export const mimeTypes = {
 		tiff: "image/tiff",
 		ico: "image/x-icon",
 	},
-	documents: {
-		pdf: "application/pdf",
-		doc: "application/msword",
-		docx: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-		xls: "application/vnd.ms-excel",
-		xlsx: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-		ppt: "application/vnd.ms-powerpoint",
-		pptx: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
-	},
 } as const;
 
 export const mimeTypesObject = {
 	...mimeTypes.audio,
-	...mimeTypes.documents,
 	...mimeTypes.image,
-	...mimeTypes.text,
 	...mimeTypes.video,
 } as const;
