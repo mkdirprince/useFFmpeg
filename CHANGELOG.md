@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.7](https://github.com/mkdirprince/useFFmpeg/compare/v1.1.6...v1.1.7) (2025-01-17)
+
+
+### Bug Fixes
+
+* resolve typescript declaration file resolution ([01920f7](https://github.com/mkdirprince/useFFmpeg/commit/01920f785df321c5a725fb96bf0e4ff1ebc2befc))
+
 ### [1.1.6](https://github.com/mkdirprince/useFFmpeg/compare/v1.1.5...v1.1.6) (2025-01-17)
 
 ### [1.1.5](https://github.com/mkdirprince/useFFmpeg/compare/v1.1.4...v1.1.5) (2025-01-17)
