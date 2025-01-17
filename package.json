@@ -1,6 +1,6 @@
 {
   "name": "use-ffmpeg",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "A React hook for browser-based media processing using FFmpeg WASM - handles video and other file formats conversion with ease",
   "main": "./build/index.cjs.js",
   "module": "./build/index.esm.js",
