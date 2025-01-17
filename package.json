@@ -7,8 +7,19 @@
   "type": "module",
   "types": "./build/index.d.ts",
   "exports": {
-    "import": "./build/index.esm.js",
-    "require": "./build/index.cjs.js"
+    ".": {
+      "types": "./build/index.d.ts",
+      "import": "./build/index.esm.js",
+      "require": "./build/index.cjs.js",
+      "default": "./build/index.esm.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./build/index.d.ts"
+      ]
+    }
   },
   "scripts": {
     "build": "rollup -c",
