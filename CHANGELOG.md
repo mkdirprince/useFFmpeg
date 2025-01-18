@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.8](https://github.com/mkdirprince/useFFmpeg/compare/v1.1.7...v1.1.8) (2025-01-18)
+
+
+### Bug Fixes
+
+* add FFmpegContextProvider to handle hook initialization and update README ([80d5249](https://github.com/mkdirprince/useFFmpeg/commit/80d524975804a03d152d816613a6a711779ddfb1))
+* resolve invalid hook call errors with context providers ([bb4b68e](https://github.com/mkdirprince/useFFmpeg/commit/bb4b68eb580c52140b766ba69ee9b39d392e6af4))
+* resolve React type import error in FFmpegContext ([2ec0113](https://github.com/mkdirprince/useFFmpeg/commit/2ec0113c49fa1e8ec00a88c1e7f8c08dc6eb3299))
+
 ### [1.1.7](https://github.com/mkdirprince/useFFmpeg/compare/v1.1.6...v1.1.7) (2025-01-17)
 
 
