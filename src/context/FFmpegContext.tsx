@@ -1,4 +1,4 @@
-import type React from "react";
+import React from "react";
 import { createContext, useContext } from "react";
 import { useFFmpeg as useFFmpegBase } from "../hooks/useFFmpeg";
 import type { UseFFmpeg } from "../types/useFFmpeg";
