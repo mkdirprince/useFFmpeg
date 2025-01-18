@@ -1,6 +1,7 @@
-import React, { createContext, useContext } from "react";
-import type { UseFFmpeg } from "../types/useFFmpeg";
+import type React from "react";
+import { createContext, useContext } from "react";
 import { useFFmpeg as useFFmpegBase } from "../hooks/useFFmpeg";
+import type { UseFFmpeg } from "../types/useFFmpeg";
 
 /**
  * Context to provide the FFmpeg hook to the application.
