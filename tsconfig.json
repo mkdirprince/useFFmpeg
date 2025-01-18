@@ -1,19 +1,20 @@
 {
-	"compilerOptions": {
-		"target": "ESNext",
-		"outDir": "./build/",
-		"module": "ESNext",
-		"moduleResolution": "node",
-		"strict": true,
-		"declaration": true,
-		"declarationMap": true,
-		"noUnusedLocals": true,
-		"noUnusedParameters": true,
-		"noImplicitReturns": true,
-		"noFallthroughCasesInSwitch": true,
-		"esModuleInterop": true,
-		"typeRoots": ["./src/types", "./node_modules/@types"]
-	},
-	"include": ["src/**/*", "src/types/use-ffmpeg.d.ts"],
-	"exclude": ["node_modules", "build"]
+  "compilerOptions": {
+    "jsx": "react",
+    "target": "ESNext",
+    "outDir": "./build/",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "strict": true,
+    "declaration": true,
+    "declarationMap": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "esModuleInterop": true,
+    "typeRoots": ["./src/types", "./node_modules/@types"]
+  },
+  "include": ["src/**/*", "src/types/use-ffmpeg.d.ts"],
+  "exclude": ["node_modules", "build"]
 }

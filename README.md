@@ -69,6 +69,41 @@ npm install @ffmpeg/ffmpeg
 
 ## Usage
 
+## Context Provider Setup
+
+o prevent common hook-related errors when using context providers in your React application, we provide an `FFmpegContextProvider`. This is particularly useful when you have multiple context providers or complex component hierarchies in your app root.
+
+```tsx
+import { FFmpegContextProvider } from "use-ffmpeg";
+
+// Wrap your app with the FFmpegContextProvider
+const App = () => {
+  return (
+    <FFmpegContextProvider>
+      <OtherContextProvider>
+        <YourApplication />
+      </OtherContextProvider>
+    </FFmpegContextProvider>
+  );
+};
+```
+
+This setup prevents common issues like:
+
+- Invalid hook calls
+- Conflicts with other context providers
+
+When using the context provider, you can still use the useFFmpeg hook normally in your components:
+
+```tsx
+import { useFFmpeg } from "use-ffmpeg";
+
+const YourComponent = () => {
+  const { loadFFmpeg, loaded, transcode } = useFFmpeg();
+  // Rest of your component code...
+};
+```
+
 ## Access to MIME Types
 
 In addition to the core functionality, users also have access to a predefined object containing supported MIME types, which can be used directly in the application. This object allows easy reference to MIME types for transcoding operations.
